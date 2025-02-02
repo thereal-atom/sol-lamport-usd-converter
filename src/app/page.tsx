@@ -120,19 +120,17 @@ const NumberInput = ({ value, onChange, placeholder, name }: { value: number; on
 	/>
 );
 
-const InputWithCopy = ({ value, onChange, placeholder, name }: { value: string; onChange: (e: ChangeEvent<HTMLInputElement>) => void; placeholder: string; name: string }) => (
+const InputWithCopy = ({ value, onChange, placeholder, name }: { value: number; onChange: (e: ChangeEvent<HTMLInputElement>) => void; placeholder: string; name: string }) => (
 	<div className="flex gap-2">
-		<input
-			type="text"
+		<NumberInput
 			value={value}
 			onChange={onChange}
 			placeholder={placeholder}
 			name={name}
-			className="w-full rounded-md bg-black border-2 border-white p-4 text-center text-xl font-bold"
 		/>
 		<button
 			className="ml-2"
-			onClick={() => copyToClipboard(value)}>
+			onClick={() => copyToClipboard(value.toString())}>
 			Copy
 		</button>
 	</div>
